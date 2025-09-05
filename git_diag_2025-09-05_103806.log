@@ -1,0 +1,79 @@
+
+=== Verificando se está em um repositório Git ===
+[INFO] Repo raiz: /home/mbenedicto/Documents/Faculdades/POLI/IA/trilhaMLOps
+
+=== Status geral ===
+git version 2.43.0
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    GIT.sh
+	modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	atualiza_git.sh
+	corrige.sh
+	docs/
+	git_SOS.sh
+	git_diag_2025-09-05_103806.log
+	rodar_pipeline_min.sh
+	src/__init__.py
+	train.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+=== Remotos configurados ===
+origin	git@github.com:mbenedicto99/TrilhaMLOps.git (fetch)
+origin	git@github.com:mbenedicto99/TrilhaMLOps.git (push)
+
+=== Branch atual e upstream ===
+* main 393db45 [origin/main] Trilha MLOps 001
+
+=== Detalhes do remoto origin ===
+[INFO] origin = git@github.com:mbenedicto99/TrilhaMLOps.git
+
+
+=== Teste de acesso ao remoto (ls-remote) ===
+[INFO] Conseguiu acessar o remoto.
+
+=== Fetch dry-run (não altera nada) ===
+
+=== Ahead/Behind (se upstream existir) ===
+[INFO] Upstream de main = origin/main
+[INFO] Behind (local atrás do remoto): 0 | Ahead (local à frente): 0
+
+=== Push dry-run (simula envio) ===
+[INFO] Push dry-run OK.
+
+=== Arquivos grandes no diretório de trabalho (>100MB) ===
+[INFO] Nenhum arquivo >100MB rastreado encontrado.
+
+=== Resumo de possíveis causas (heurísticas) ===
+
+=== Dicas rápidas (comandos úteis) ===
+# Definir upstream e enviar
+git push -u origin $(git rev-parse --abbrev-ref HEAD)
+
+# Atualizar URL do origin (HTTPS ou SSH)
+git remote set-url origin https://github.com/<user>/<repo>.git
+# ou
+git remote set-url origin git@github.com:<user>/<repo>.git
+
+# Resolver non-fast-forward
+git fetch origin
+git pull --rebase origin $(git rev-parse --abbrev-ref HEAD)
+git push
+
+# Testar SSH
+ssh -T git@github.com
+
+# Push simulado
+git push --dry-run origin $(git rev-parse --abbrev-ref HEAD)
+
+=== Fim ===
+[INFO] Log salvo em: git_diag_2025-09-05_103806.log

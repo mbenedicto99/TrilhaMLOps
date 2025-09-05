@@ -94,3 +94,32 @@ git commit -m "track data locally with DVC"
 ## Notas de qualidade
 - `ruff`/`flake8`/`black` são bem-vindos, aqui só deixamos `flake8` no CI para reduzir fricção.
 - Seeds fixados no treino para favorecer reprodutibilidade mínima.
+## Documentação (Guia em PDF)
+
+- Guia completo da **Trilha Mínima de MLOps**:
+  - [docs/Guia_Trilha_Minima.pdf](docs/Guia_Trilha_Minima.pdf)
+
+> GitHub Pages (opcional): Settings → Pages → Source = `Deploy from a branch`, Branch = `main`, Folder = `/docs`.
+# Trilha Mínima de MLOps
+
+Pipeline mínimo: HF + Lightning + Hydra + ONNX/ORT + FastAPI + Docker + CI (Actions) + DVC (opcional).
+
+## Como começar (Ubuntu + Python 3.12)
+```bash
+python3.12 -m venv .venv --upgrade-deps && source .venv/bin/activate
+pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio
+pip install -r requirements.txt
+touch src/__init__.py
+```
+
+### Treino / Export / API
+```bash
+python -m src.train
+python -m src.export_onnx
+python src/infer.py --text "Breaking news: test"
+python src/infer_onnx.py --text "Breaking news: test"
+uvicorn api.app:app --reload
+```
+
+## Documentação (PDF)
+- [docs/Guia_Trilha_Minima.pdf](docs/Guia_Trilha_Minima.pdf)
