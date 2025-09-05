@@ -1,0 +1,30 @@
+# Hydra config
+defaults: []
+
+seed: 42
+
+data:
+  dataset_name: ag_news
+  max_length: 128
+  batch_size: 16
+
+model:
+  name: distilbert-base-uncased
+  num_labels: 4
+  lr: 5e-5
+  weight_decay: 0.01
+
+trainer:
+  max_epochs: 1
+  precision: 32
+  devices: 1
+  log_every_n_steps: 10
+
+logging:
+  use_wandb: false   # se true, requer WANDB_API_KEY/WANDB_PROJECT
+  project: "mlops-trilha-minima"
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
